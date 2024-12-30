@@ -1,0 +1,427 @@
+:root {
+    --main-color: #50fcd4;
+    --light-color: #d4d4d4;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-up {
+    from {
+        top: 52.5%
+    }
+
+    to {
+        top:50%;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: itim, monospace;
+    animation: fade-in 1.25s;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--main-color) repeat fixed;
+    background-size: cover;
+}
+
+body.loaded .head-detail-left,
+body.loaded .head-detail-right {
+    transform: translateX(0%) translateY(0%);
+}
+
+h1 {
+    font-size: calc(4rem + 1.5vw);
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+}
+
+/* using form highlight text */
+header p,
+h2,
+h3 {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* using for floating content */
+h1,
+h2,
+header p {
+    max-width: 400px;
+}
+
+section h3+p {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+:is(footer, header, #contact) p>a {
+    border-bottom: 0.175rem dotted black;
+    transition: .3s;
+}
+
+:is(footer, header, #contact) p>a:hover {
+    cursor: pointer;
+    border-color: transparent;
+}
+
+input:not([type="submit"]),
+textarea {
+    padding: 1rem 1rem;
+    border: 2px solid var(--light-color);
+    border-radius: 6px;
+    width: 100%;
+    font-size: 1.125rem;
+}
+
+input:not([type="submit"]):focus,
+textarea:focus {
+    border: 2px solid var(--main-color);
+    outline: none;
+}
+
+section,
+header {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+footer {
+    display: none;
+    text-align: center;
+}
+
+[class *="sec-detail"],
+[class *="head-detail"],
+[class *="footer-detail"] {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+    flex: 100%;
+    padding: 4rem calc(1rem + 5vw);
+}
+
+/* floated content */
+[class *=detail-left] {
+    background: transparent;
+}
+
+/* pinned content */
+[class *=detail-right] {
+    background: white;
+}
+
+.head-detail-left {
+    transform: translateX(-5%);
+    transition: 1s;
+}
+
+.head-detail-right {
+    padding: 0;
+    transform: translateX(0);
+    transition: 1.5s;
+}
+
+.head-detail-right img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.full-img-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 5;
+}
+
+.full-img {
+    position: absolute;
+    left: 50%;
+    height: calc(70% + 10vw);
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation: slide-up .5s .5s both, fade-in .5s .5s backwards;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.flex-items {
+    display: inline-block;
+    width: 300px;
+}
+
+.grid-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(0.15rem + 2vw);
+}
+
+[class *="grid-item"]:hover {
+    cursor: pointer;
+}
+
+.grid-item1,
+.grid-item4 {
+    display: block;
+    grid-column: span 2;
+    width: 100%;
+    height: 100%;
+}
+
+.grid-item2,
+.grid-item3 {
+    display: block;
+    grid-column: span 1;
+    width: 100%;
+    height: 100%;
+}
+
+.button {
+    text-transform: uppercase;
+    padding: 0.5rem 2.6rem;
+    width: auto;
+    text-align: center;
+    border-radius: 6px;
+    display: inline;
+    display: inline-block;
+    transition: .3s;
+}
+
+.type1 {
+    background-color: var(--main-color);
+    border: 2px solid var(--main-color);
+}
+
+.type1:hover {
+    cursor: pointer;
+    opacity: 0.65;
+}
+
+.type2 {
+    border: 2px solid var(--light-color);
+}
+
+.type2:hover {
+    cursor: pointer;
+    border-color: var(--main-color);
+    color: var(--main-color);
+}
+
+.icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-color);
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+    clip-path: polygon(50% 0%,
+            100% 25%,
+            100% 75%,
+            50% 100%,
+            0% 75%,
+            0% 25%);
+    border-radius: 1.5rem;
+}
+
+.close-icon {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 1.75rem;
+    z-index: 10;
+}
+
+.close-icon:hover {
+    cursor: pointer;
+}
+
+.social-media-icon {
+    margin: 0 0.75rem;
+    border-radius: 50%;
+    transition: .3s;
+    font-size: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-media-icon:hover {
+    background-color: var(--light-color);
+}
+
+.visible {
+    display: block;
+}
+
+#nav {
+    display: none;
+    font-size: 5rem;
+}
+
+@media screen and (min-width: 1150px) {
+
+    .head-detail-left {
+        transform: translateY(10%);
+    }
+
+    .head-detail-right {
+        transform: translateY(-10%);
+    }
+
+    /* using for floating content */
+    h1,
+    h2,
+    header p {
+        text-align: end;
+        display: inline-block;
+    }
+
+    /* for making content split into 2 sides */
+    section,
+    header,
+    footer {
+        flex-direction: row;
+        align-items: start;
+    }
+
+    footer {
+        display: flex;
+    }
+
+    [class *="sec-detail"],
+    [class *="head-detail"],
+    [class *="footer-detail"] {
+        width: 50%;
+        flex: 50%;
+    }
+
+    [class *="detail-left"] {
+        align-items: end;
+        padding-right: calc(5rem + 5vw);
+    }
+
+    [class *="head-detail"] {
+        height: 100vh;
+    }
+
+    /* all ::before and ::after is middle line */
+    header::before,
+    section::before {
+        content: "";
+        position: absolute;
+        left: 45%;
+        border-right: 0.125rem solid black;
+        height: 100%;
+    }
+
+    header::before {
+        top: 13.7rem;
+    }
+
+    h1::before,
+    h2::before {
+        content: "";
+        position: absolute;
+        border-top: 0.125rem solid black;
+        width: 3rem;
+    }
+
+    h1::before {
+        top: 13.7rem;
+        left: calc(90% - 3rem);
+    }
+
+    h2::before {
+        top: 4.85rem;
+        left: calc(45% - 3rem);
+    }
+
+    h1::after,
+    h2::after {
+        content: "";
+        position: absolute;
+
+        background: black;
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+    }
+
+    h1::after {
+        top: calc(13.7rem - 0.2rem);
+        left: calc(90% - 3.25rem);
+    }
+
+    h2::after {
+        top: calc(4.85rem - 0.2rem);
+        left: calc(45% - 3.25rem);
+    }
+
+    footer::before {
+        content: "";
+        position: absolute;
+        left: calc(45% - 0.2rem);
+        background: black;
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+    }
+
+    /* all ::before and ::after is middle line */
+
+    /* for split detail of image set into floating instead of pinning */
+    .semi-detail-left {
+        position: absolute;
+        text-align: end;
+        padding: 0 calc(4rem + 5vw) 0 0;
+        right: 50%;
+        width: 40%;
+    }
+
+    .flex-items {
+        width: 200px;
+    }
+
+    #nav {
+        display: block;
+    }
+}
