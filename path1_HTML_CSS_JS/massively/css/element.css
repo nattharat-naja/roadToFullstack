@@ -1,0 +1,25 @@
+html {
+  overflow: hidden;
+}
+
+.table-alt tbody td {
+  border: 0.125rem solid #e2e2e2;
+}
+
+.btn-icon::before {
+  margin-right: 0.25rem;
+}
+
+form,
+.imgset {
+  row-gap: 1rem;
+}
+form *,
+.imgset * {
+  margin-bottom: 0;
+}
+
+.preform {
+  display: block;
+  margin-bottom: 0;
+}/*# sourceMappingURL=element.css.map */

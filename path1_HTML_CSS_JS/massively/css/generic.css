@@ -1,0 +1,14 @@
+html {
+  overflow: hidden;
+}
+
+.paragraph {
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+.paragraph p {
+  text-align: justify;
+  margin-bottom: 0;
+}/*# sourceMappingURL=generic.css.map */

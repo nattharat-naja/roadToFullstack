@@ -1,0 +1,33 @@
+@use "../variable" as *;
+
+html {
+    overflow: hidden;
+}
+
+.table-alt {
+    tbody {
+        td {
+            border: 0.125rem solid $gray-color;
+        }
+    }
+}
+
+.btn-icon {
+    &::before {
+        margin-right: 0.25rem;
+    }
+}
+
+form,
+.imgset {
+    row-gap: 1rem;
+
+    * {
+        margin-bottom: 0;
+    }
+}
+
+.preform {
+    display: block;
+    margin-bottom: 0;
+}
